@@ -1,0 +1,80 @@
+﻿
+
+@model List<AshrafFirstWebsite.Models.Skill>
+
+<link href="~/Admin/vendor/simple-datatables/style.css" rel="stylesheet">
+
+<div class="col-12">
+    <div class="card recent-sales">
+
+        <div class="filter">
+            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+            </ul>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">
+                <a asp-controller="Skills" asp-action="Edit" class="btn btn-success">Add</a>
+            </h5>
+
+
+            <!-- Table with stripped rows -->
+            <table class="table table-borderless datatable">
+
+                <thead>
+
+
+
+                    <tr>
+                        <th>SqlServer</th>
+                        <th>HTML</th>
+                        <th>CSS</th>
+                        <th>JS</th>
+                        <th>C#</th>
+                        <th>Asp.NetCore</th>
+                        <th>Xamarin Forms</th>
+                    </tr>
+
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>@item.Sqlserver</td>
+                            <td>@item.Html</td>
+                            <td>@item.Css</td>
+                            <td>@item.Js</td>
+                            <td>@item.C</td>
+                            <td>@item.AspNetCore</td>
+                            <td>@item.XamarinForms</td>
+
+                            <td>
+                                <a asp-controller="Skills" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-info">تعديل</a>
+                                <a asp-controller="Skills" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger">حذف</a>
+                            </td>
+                        </tr>
+
+                    }
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Admin/vendor/simple-datatables/simple-datatables.js"></script>
